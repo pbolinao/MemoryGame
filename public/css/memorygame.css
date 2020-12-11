@@ -1,0 +1,309 @@
+body {
+    background-image: linear-gradient(45deg, #71527a, #3279a5);
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    overflow: hidden;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+#game {
+    width: 80vw;
+    height: 100%;
+    border-right: 2px solid black;
+}
+
+#top-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 10vh;
+}
+#tb-left, #tb-right {
+    padding-top: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
+    display: flex;
+    flex-direction: column;
+}
+#tb-left p, #tb-left h2, #tb-right p {
+    padding: 0;
+    margin: 0;
+}
+#tb-left a {
+    color: black;
+    text-decoration: none;
+}
+#tb-left a:hover {
+    color:white;
+}
+#tb-right {
+    text-align: center;
+}
+#tb-right div {
+    display: flex;
+}
+#tb-right div p {
+    margin: 0 8px;
+}
+#terminate {
+    font-size: 14pt;
+    border: none;
+    background: none;
+    background-image: linear-gradient(10deg, #71527a, #3279a5);
+    color: #000000;
+    margin: 2pt !important;
+    padding: 4pt 10pt !important;
+    -webkit-box-shadow: 0 0 3px #4e4e4e;
+    box-shadow: 0 0 3px #4e4e4e;
+    border-radius: 4px;
+}
+#terminate:hover {
+    background-image: linear-gradient(0deg, #71527a, #3279a5);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+#home-btn {
+    font-size: 16pt;
+    color: black;
+    text-decoration: none;
+}
+#home-btn:hover {
+    color: white;
+}
+#game-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    height: 90vh;
+}
+#game-board {
+    box-shadow: 0 0 1px black;
+    width: 256px;
+    height: 256px;
+    background-color: #3b8cbe91;
+    margin: auto;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+	transition: all 0.75s ease-in;
+}
+#game-start-menu {
+    border-radius: 4px;
+    box-shadow: 0 0 1px black;
+    width: 256px;
+    height: 256px;
+    background-image: radial-gradient(circle at bottom, #71527af4 10%, #3279a5f4);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+	transition: all 0.75s ease-in;
+}
+#game-start-btn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+#game-start-btn-container div {
+    margin: 0;
+}
+#game-start-menu h2 {
+    margin-top: 12px;
+    margin-bottom: 8px;
+}
+#game-start-menu p {
+    margin: 0;
+    font-size: 10pt;
+}
+.game-start-button h3 {
+    margin: 0;
+}
+.game-start-button:hover {
+    cursor: pointer;
+    color: white;
+}
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.tile {
+    background-color: #6f648fee;
+    border: 1px solid hotpink;
+    position: relative;
+    height: 64px;
+    width: 64px;
+    transition: transform 1s, background-color 0.5s linear;
+}
+.tile:hover {
+    cursor: pointer;
+}
+
+.tile-order {
+    display: none;
+    position: relative;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    font-size: 16pt;
+}
+
+#game-ready-button {
+    width: fit-content !important;
+    font-size: 14pt;
+    border: none;
+    background: none;
+    background-image: linear-gradient(10deg, #71527a, #3279a5);
+    color: #000000;
+    margin: auto !important;
+    padding: 4pt 10pt !important;
+    -webkit-box-shadow: 0 0 3px #4e4e4e;
+    box-shadow: 0 0 3px #4e4e4e;
+    transition: all 0.25s ease-in-out;
+    border-radius: 4px;
+    transform: scale(0);
+    transition: transform 0.5s;
+}
+#game-ready-button:hover {
+    background-image: linear-gradient(0deg, #71527a, #3279a5);
+    color: rgb(0, 0, 0);
+	transition: all 0.25s ease-in-out;
+    cursor: pointer;
+}
+
+#game-endround-disp, #game-ready, #game-end-menu, #score-submitted-menu {
+    position: absolute; 
+    height: 100%;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+#game-endround-msg {
+    color: #000000;
+    transform: scale(0);
+    transition: transform 0.75s;
+}
+
+#game-end-menu {
+    border-radius: 4px;
+    box-shadow: 0 0 1px black;
+    width: 256px;
+    height: 256px;
+    background-color: #3b8cbee1;
+    margin: auto;
+    display: none;
+    flex-direction: column;
+	transition: all 0.75s ease-in;
+}
+
+#game-end-menu input {
+    margin: 1em;
+    font-size: 14pt;
+    border:0;
+    border-bottom: 1px solid #3f3f3f;  
+    background:transparent;
+}
+::placeholder { 
+    color: rgb(29, 29, 29);
+    opacity: 1; 
+}
+#game-end-menu input:focus { 
+    border: 0;
+    outline: none;
+    border-bottom: 1px solid #c03728;
+}
+
+#game-end-submit, .game-end-replay, .game-end-end {
+    margin: 0;
+}
+
+#game-end-submit:hover, .game-end-replay:hover, .game-end-end:hover {
+    cursor: pointer;
+    color: white;
+}
+
+#leaderboard {
+    width: 20vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+#leaderboard tr, #score-submitted-menu tr {
+    text-align: center;
+}
+
+#score-submitted-menu {
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    background-image: radial-gradient(circle at bottom, #71527af4 10%, #3279a5f4);
+    width: 512px;
+    height: 512px;
+}
+#submit-leaderboard-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+#loading-gif {
+    width:10%;
+    display:block;
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:200px;
+    margin: auto;
+}
+#loading-gif-2 {
+    width:10%;
+    margin: 0 auto;
+}
+#player-score-submission {
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 1024px) {
+    #leaderboard {
+        display: none;
+    }
+    #game {
+        width: 100vw;
+        border: 0;
+    }
+    #game-container {
+        width: 100vw;
+    }
+    #top-bar {
+        height: fit-content;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #score-submitted-menu {
+        width: 100vw;
+        height: 100vw;
+    }
+    #loading-gif {
+        width:10%;
+        display:block;
+        position:absolute;
+        left:0;
+        right:0;
+        bottom:128px;
+        margin: auto;
+    }
+}
