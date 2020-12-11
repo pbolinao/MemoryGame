@@ -11,6 +11,24 @@ body {
     height: 100%;
 }
 
+#side-footer {
+    position: absolute;
+    bottom: 0.5em;
+    text-align: center;
+    width: 20vw;
+}
+#side-footer h4, #side-footer p {
+    margin: 0 auto;
+}
+#side-footer a {
+    text-decoration: none;
+    color: black;
+    margin: 0 auto;
+}
+#side-footer a:hover {
+    color: white;
+}
+
 #game {
     width: 80vw;
     height: 100%;
